@@ -1,2 +1,6 @@
-# KeycloakIdentityAPI
-This API was developed to make it easier to use Keycloak in .NET projects.
+Bu API, .NET projelerinde Keycloak kullanmayı kolaylaştırmak için geliştirildi:
+
+Minimal API desteğiyle hızlı entegrasyon
+Kullanıcı, grup ve role yönetimi
+Token alma gibi temel işlemler
+Servis katmanına kolayca entegre edilebilen soyut yapı
