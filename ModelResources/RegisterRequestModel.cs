@@ -8,7 +8,7 @@ public class RegisterRequestModel
     public string email { get; set; } = default!;
     public bool enabled { get; set; }
     public bool emailVerified { get; set; }
-    public long? companyId { get; set; }
+    public Dictionary<string, string[]>? attributes { get; set; }
 
     public List<CredentialModel> credentials { get; set; } = [];
 }

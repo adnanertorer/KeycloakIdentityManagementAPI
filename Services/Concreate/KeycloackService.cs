@@ -115,7 +115,6 @@ internal class KeycloackService(IOptions<KeycloakConfiguration> options, ICurren
             email = registerModel.Email,
             enabled = registerModel.Enabled,
             emailVerified = registerModel.EmailVerified,
-            companyId = registerModel.CompanyId,
             credentials =
             [
                 new() {
@@ -123,7 +122,11 @@ internal class KeycloackService(IOptions<KeycloakConfiguration> options, ICurren
                     type = "password",
                     value = registerModel.Password
                 }
-            ]
+            ],
+            attributes = new Dictionary<string, string[]>
+            {
+                { "companyId", new[] { registerModel.CompanyId.HasValue ? registerModel.CompanyId.ToString() : "0" } }
+            }
         };
 
         var json = JsonSerializer.Serialize(data);
