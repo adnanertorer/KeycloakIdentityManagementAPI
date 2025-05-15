@@ -115,7 +115,7 @@ internal class KeycloackService(IOptions<KeycloakConfiguration> options, ICurren
             email = registerModel.Email,
             enabled = registerModel.Enabled,
             emailVerified = registerModel.EmailVerified,
-            Company_Id = registerModel.CompanyId,
+            companyId = registerModel.CompanyId,
             credentials =
             [
                 new() {
