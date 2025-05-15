@@ -7,7 +7,10 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.WebHost.UseUrls("http://0.0.0.0:5004");
+builder.WebHost.ConfigureKestrel(options =>
+{
+    options.ListenAnyIP(8083); 
+});
 
 
 // Add services to the container.
@@ -83,6 +86,6 @@ app.UseCors("CorsPolicy");
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
 app.Run();

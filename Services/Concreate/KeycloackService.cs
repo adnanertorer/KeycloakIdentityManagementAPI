@@ -68,9 +68,10 @@ internal class KeycloackService(IOptions<KeycloakConfiguration> options, ICurren
 
     public async Task<Response<GetAccessTokenResponseModel>> Login(LoginModel loginModel, CancellationToken cancellationToken = default)
     {
+        Console.WriteLine(options.Value.HostName);
         HttpClient httpClient = new();
         var endpoint = $"{options.Value.HostName}/realms/{options.Value.Realm}/protocol/openid-connect/token";
-
+        
         List<KeyValuePair<string, string>> data = [];
         KeyValuePair<string, string> grantType = new("grant_type", "password");
         KeyValuePair<string, string> clientId = new("client_id", options.Value.ClientId);
